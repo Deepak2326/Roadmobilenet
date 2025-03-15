@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Server Response:", data);
 
             if (response.ok) {
-                displayClassification(data.category);
+                displayClassification(data.category, data.confidence);  // Now also passing confidence score
             } else {
                 if (response.status === 401) {
                     alert("Session expired. Please login again.");
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function displayClassification(category) {
-        classificationResult.textContent = `Classified as: ${category}`;
+    function displayClassification(category, confidence) {
+        classificationResult.textContent = `Classified as: ${category} (Confidence: ${confidence.toFixed(2)}%)`;
         classificationResult.className = "classification-result"; // Reset classes
 
         if (category === "Minor") classificationResult.classList.add("minor");
