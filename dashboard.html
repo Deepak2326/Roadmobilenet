@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #1f1f1f;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+        
+        #logout {
+            background: #ff4c4c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        #logout:hover {
+            background: #ff1c1c;
+        }
+        
+        .container {
+            width: 50%;
+            text-align: center;
+            background: #1e1e1e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropbox {
+            border: 2px dashed #4a90e2;
+            padding: 50px;
+            cursor: pointer;
+            background: #2a2a2a;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        
+        .dropbox:hover {
+            background: #3a3a3a;
+        }
+        
+        .classification-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .minor { background-color: #2ecc71; }
+        .moderate { background-color: #f39c12; }
+        .major { background-color: #e74c3c; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Dashboard</h1>
+        <button id="logout">Logout</button>
+    </nav>
+
+    <div class="container">
+        <h2>Upload an Image</h2>
+        <p>Drop an image to classify it as Minor, Moderate, or Major.</p>
+        
+        <div class="dropbox" id="dropbox">
+            <i class="fas fa-cloud-upload-alt" style="font-size: 50px;"></i>
+            <p>Drag & Drop Image Here</p>
+            <small>or click to browse files</small>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        
+        <div id="classificationResult" class="classification-result"></div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
